@@ -10,6 +10,8 @@
 # the Free Software Foundation, either version 2 of the License, or
 # (at your option) any later version.
 
+source spinner.sh
+
 # Must be root to uninstall
 if [[ ${EUID} -eq 0 ]]; then
 	echo "::: You are root."
