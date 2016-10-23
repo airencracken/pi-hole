@@ -52,7 +52,7 @@ is_repo() {
 
 make_repo() {
 	# Remove the non-repod interface and clone the interface
-	echo -n ":::    Cloning $2 into $1..."
+	echo -n ":::    Cloning ${2} into ${1}..."
 	rm -rf "${1}"
 	git clone -q --depth 1 "${2}" "${1}" > /dev/null & spinner $!
 	echo " done!"
@@ -60,7 +60,7 @@ make_repo() {
 
 update_repo() {
 # Pull the latest commits
-	echo -n ":::     Updating repo in $1..."
+	echo -n ":::     Updating repo in ${1}..."
 	cd "${1}" || exit 1
 	git stash -q > /dev/null & spinner $!
 	git pull -q > /dev/null & spinner $!
@@ -86,8 +86,8 @@ webVersion=$(pihole -v -a -c)
 webVersionLatest=$(pihole -v -a -l)
 
 echo ":::"
-echo "::: Pi-hole version is $piholeVersion (Latest version is $piholeVersionLatest)"
-echo "::: Web Admin version is $webVersion (Latest version is $webVersionLatest)"
+echo "::: Pi-hole version is ${piholeVersion} (Latest version is ${piholeVersionLatest})"
+echo "::: Web Admin version is ${webVersion} (Latest version is ${webVersionLatest})"
 echo ":::"
 
 # Logic
